@@ -28,3 +28,9 @@ ZT's results:
    1) filled_answers__unfinetuned_distilgpt2: unfinetuned result, answers are very unspecific.
    2) filled_answers__finetuned_distilgpt2_30: finetuned result with 30 training epochs, great convergence, answers seem pretty rick.
  - Advanced: filled_answers__finetuned_llama3_qlora: Fine tuned Llama3 results. Does not converge within 8 epochs. Answers seem pretty ricky but follow obvious patterns.
+
+Lesley's results:
+| Name of file | Technique | Example Prompt
+| ------------- | ------------- | ------------- |
+| ...glm4_rickprompt.csv | Use original GLM-4 model | Model only knows it's name is Rick but doesn't know which Rick. "You are Rick."
+| ...finetuned_glm4_rickprompt.csv | Use fine-tuned GLM-4 model | Model only knows it's name is Rick but doesn't know which Rick. "You are Rick."
