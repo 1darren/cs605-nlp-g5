@@ -1,18 +1,23 @@
 - filled_answers.csv is in UTF-8
 
-- Darren's set of results:
-| Name of file | Technique | Example Prompt
-'',
- '',
- 'filled_answers__rag__gpt35_rickprompt',
- '
 
-| Name of file | Technique | Example Prompt
+| Name of file (user) | Technique | Example Prompt
 | ------------- | ------------- | ------------- |
-| ...__rag__gpt35_raw.csv | Just directly ask chat GPT | (No Prompt) "Answer the question..."
-| ...__rag__gpt35_rickprompt.csv | Tell ChatGPT they are Rick | "Answer the question as if you were Rick Sanchez from Rick & Morty."
-| ...__rag__nometaprompt.csv  | Tell ChatGPT they are Rick + RAG Dialogue | "Reply the question, as if you were Rick. <br>Reply as if you are speaking to somebody neutral; do not name them.<br>The context contains sample dialogue from the character,  which you should use to rewrite the answer in the style of the character.<br>If the context appears unrelated, do not use the context. `{context}`"
-| ...__rag__metaprompt.csv  | Tell ChatGPT they are Rick + RAG Dialogue + Meta Prompt  | "Reply the question, as if you were Rick. <br>Reply as if you are speaking to somebody neutral; do not name them. <br>A summary of their speaking style: `{metaprompt}`<br>The context contains sample dialogue from the character,  which you should use to rewrite the answer in the style of the character.<br>If the context appears unrelated, do not use the context. `{context}`"
+| ...rag__gpt35_raw.csv (Darren) | Just directly ask chat GPT | (No Prompt) "Answer the question..."
+| ...rag__gpt35_rickprompt.csv (Darren) | Tell ChatGPT they are Rick | "Answer the question as if you were Rick Sanchez from Rick & Morty."
+| ...rag__nometaprompt.csv  (Darren) | Tell ChatGPT they are Rick + RAG Dialogue | "Reply the question, as if you were Rick. <br>Reply as if you are speaking to somebody neutral; do not name them.<br>The context contains sample dialogue from the character,  which you should use to rewrite the answer in the style of the character.<br>If the context appears unrelated, do not use the context. `{context}`"
+| ...rag__metaprompt.csv  (Darren) | Tell ChatGPT they are Rick + RAG Dialogue + Meta Prompt  | "Reply the question, as if you were Rick. <br>Reply as if you are speaking to somebody neutral; do not name them. <br>A summary of their speaking style: `{metaprompt}`<br>The context contains sample dialogue from the character,  which you should use to rewrite the answer in the style of the character.<br>If the context appears unrelated, do not use the context. `{context}`"
+| ...glm4_rickprompt.csv (Lesley) | Use original GLM-4 model | Model only knows it's name is Rick but doesn't know which Rick. "You are Rick."
+| ...finetuned_glm4_rickprompt.csv (Lesley) | Use fine-tuned GLM-4 model | Model only knows it's name is Rick but doesn't know which Rick. "You are Rick."
+| unfinetuned_distilgpt2 (Zitian) | Unfinetuned, no prompt | No Prompt |
+| finetuned_distilgpt2_30 (Zitian) | Finetuned result with 30 training epochs, great convergence, answers seem pretty rick. | No Prompt |
+| finetuned_llama3_qlora (Zitian) | Finetuned result but no convergence within 8 epochs. | No Prompt. Answers seem pretty ricky but follow obvious patterns. |
+| ------------- | ------------- | ------------- |
+
+
+
+ZT's results: 
+ - DistilGPT2: light-weight baseline for comparison, no extra prompts other than the questions themselves.
 
 Metaprompt:
 ```
@@ -22,15 +27,3 @@ character who speaks his mind without much filter. Rick's words invoke a sense o
 rebelliousness. His tone of voice can vary from calm and contemplative to assertive and even slightly confrontational, depending on the situation. 
 Overall, Rick's dialogue conveys a sense of independence and a willingness to challenge norms or expectations.
 ```
-
-ZT's results: 
- - DistilGPT2: light-weight baseline for comparison, no extra prompts other than the questions themselves.
-   1) filled_answers__unfinetuned_distilgpt2: unfinetuned result, answers are very unspecific.
-   2) filled_answers__finetuned_distilgpt2_30: finetuned result with 30 training epochs, great convergence, answers seem pretty rick.
- - Advanced: filled_answers__finetuned_llama3_qlora: Fine tuned Llama3 results. Does not converge within 8 epochs. Answers seem pretty ricky but follow obvious patterns.
-
-Lesley's results:
-| Name of file | Technique | Example Prompt
-| ------------- | ------------- | ------------- |
-| ...glm4_rickprompt.csv | Use original GLM-4 model | Model only knows it's name is Rick but doesn't know which Rick. "You are Rick."
-| ...finetuned_glm4_rickprompt.csv | Use fine-tuned GLM-4 model | Model only knows it's name is Rick but doesn't know which Rick. "You are Rick."
