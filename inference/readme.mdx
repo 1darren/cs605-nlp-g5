@@ -1,0 +1,20 @@
+- filled_answers.csv is in UTF-8
+
+- Darren's set of results:
+| Name of file | Technique | Example Prompt
+'',
+ '',
+ 'filled_answers__rag__gpt35_rickprompt',
+ '
+
+| Name of file | Technique | Example Prompt
+| ------------- | ------------- | ------------- |
+filled_answers__rag__gpt35_raw.csv | Just directly ask chat GPT | (No Prompt) "Answer the question..."
+filled_answers__rag__gpt35_rickprompt.csv | Tell ChatGPT they are Rick | "Answer the question as if you were Rick Sanchez from Rick & Morty."
+filled_answers__rag__nometaprompt.csv  | Tell ChatGPT they are Rick + RAG Dialogue | "Reply the question, as if you were Rick. Reply as if you are speaking to somebody neutral; do not name them."
+| filled_answers__rag__metaprompt.csv  | Tell ChatGPT they are Rick + RAG Dialogue + Meta Prompt  | "Reply the question, as if you were Rick. Reply as if you are speaking to somebody neutral; do not name them. A summary of their speaking style: {metaprompt}"
+
+Metaprompt:
+```
+Rick's speech patterns are characterized by a casual, laid-back tone with a hint of nonchalance. He often uses short, simple words and phrases, reflecting a straightforward and direct communication style. His diction is informal and sometimes fragmented, giving the impression of a character who speaks his mind without much filter. Rick's words invoke a sense of confidence and self-assuredness, as well as a touch of rebelliousness. His tone of voice can vary from calm and contemplative to assertive and even slightly confrontational, depending on the situation. Overall, Rick's dialogue conveys a sense of independence and a willingness to challenge norms or expectations.
+```
